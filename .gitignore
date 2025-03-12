@@ -1,0 +1,17 @@
+# Ignorar node_modules
+node_modules/
+
+# Ignorar logs
+*.log
+
+# Ignorar arquivos de ambiente
+.env
+
+# Ignorar arquivos temporários de editor
+.vscode/
+.idea/
+.DS_Store
+
+# Ignorar pacotes de build
+build/
+dist/
