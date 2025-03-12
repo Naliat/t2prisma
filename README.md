@@ -24,14 +24,11 @@ O banco de dados possui as seguintes tabelas:
 - **Aluno**
   - `id`: Identificador único do aluno (inteiro, chave primária)
   - `nome`: Nome do aluno (string)
-  - `data_nascimento`: Data de nascimento do aluno (data)
-  - `email`: E-mail do aluno (string)
-  - `telefone`: Telefone de contato (string)
+
 
 - **Professor**
   - `id`: Identificador único do professor (inteiro, chave primária)
   - `nome`: Nome do professor (string)
-  - `email`: E-mail do professor (string)
   - `disciplina`: Disciplina que o professor leciona (string)
 
 - **Boletim**
@@ -82,5 +79,5 @@ A aplicação possui as seguintes funcionalidades:
 1. **Clone o repositório**:
 
    ```bash
-   git clone https://github.com/seuusuario/nome-do-repositorio.git
+   git clone https://github.com/Naliat/t2prisma.git
    cd nome-do-repositorio
