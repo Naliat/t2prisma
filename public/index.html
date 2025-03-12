@@ -269,12 +269,12 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          alunoId: Number(alunoId),
-          portugues: Number(portugues),
-          matematica: Number(matematica),
-          ciencias: Number(ciencias),
-          historia: Number(historia),
-          geografia: Number(geografia)
+          alunoId,
+          portugues,
+          matematica,
+          ciencias,
+          historia,
+          geografia
         })
       });
       document.getElementById("boletimForm").reset();
@@ -286,43 +286,40 @@
       loadBoletins();
     }
 
-    async function updateBoletimPrompt(id, alunoId, portugues, matematica, ciencias, historia, geografia) {
-      const novoAlunoId = prompt("Novo ID do Aluno:", alunoId);
-      const novoPortugues = prompt("Nova nota de Português:", portugues);
-      const novoMatematica = prompt("Nova nota de Matemática:", matematica);
-      const novoCiencias = prompt("Nova nota de Ciências:", ciencias);
-      const novoHistoria = prompt("Nova nota de História:", historia);
-      const novoGeografia = prompt("Nova nota de Geografia:", geografia);
-      if (novoAlunoId && novoPortugues && novoMatematica && novoCiencias && novoHistoria && novoGeografia) {
+    async function updateBoletimPrompt(id, currentAlunoId, currentPortugues, currentMatematica, currentCiencias, currentHistoria, currentGeografia) {
+      const alunoId = prompt("Novo ID do aluno:", currentAlunoId);
+      const portugues = prompt("Nova nota de Português:", currentPortugues);
+      const matematica = prompt("Nova nota de Matemática:", currentMatematica);
+      const ciencias = prompt("Nova nota de Ciências:", currentCiencias);
+      const historia = prompt("Nova nota de História:", currentHistoria);
+      const geografia = prompt("Nova nota de Geografia:", currentGeografia);
+      if (alunoId && portugues && matematica && ciencias && historia && geografia) {
         await fetch(API_URL + "/boletins/" + id, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            alunoId: Number(novoAlunoId),
-            portugues: Number(novoPortugues),
-            matematica: Number(novoMatematica),
-            ciencias: Number(novoCiencias),
-            historia: Number(novoHistoria),
-            geografia: Number(novoGeografia)
+            alunoId,
+            portugues,
+            matematica,
+            ciencias,
+            historia,
+            geografia
           })
         });
         loadBoletins();
       }
     }
 
-    // Adicionar listeners aos formulários
+    // Inicializando
     document.getElementById("alunoForm").addEventListener("submit", addAluno);
     document.getElementById("professorForm").addEventListener("submit", addProfessor);
     document.getElementById("boletimForm").addEventListener("submit", addBoletim);
-
-    // Carregar dados ao iniciar a página
-    window.onload = function() {
-      loadAlunos();
-      loadProfessores();
-      loadBoletins();
-    };
+    loadAlunos();
+    loadProfessores();
+    loadBoletins();
   </script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
